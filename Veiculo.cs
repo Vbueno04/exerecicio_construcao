@@ -7,14 +7,19 @@ namespace ExerciciosConstrucao
 {
     public class Veiculo
     {
-        public double Velocidade {get; set;}
-         public void MedirVelocidade (double Velocidade)
+        // A propriedade deve aceitar apenas valores entre 0 e 200 km/h.
+        private int velocidade;
+        public int Velocidade
         {
-            if (Velocidade < 0 || Velocidade > 200 )
+            get { return velocidade; }
+            set
             {
-                Velocidade = Velocidade;
-                Console.WriteLine("Velocidade não alternada");
-
+                if (value < 0 || value > 200)
+                {
+                    Console.WriteLine("Velocidade deve estar entre 0 e 200 km/h.");
+                    value = 0;
+                }
+                velocidade = value;
             }
         }
     }
